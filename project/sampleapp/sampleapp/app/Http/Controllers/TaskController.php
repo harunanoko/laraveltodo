@@ -20,7 +20,7 @@ class TaskController extends Controller
         $task->name = $request->name;
         $task->save();
     
-        return view('task.index');
+        return redirect('/task');
     }
 
 }

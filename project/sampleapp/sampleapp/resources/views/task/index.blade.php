@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-<p>hello world!</p>
+
 
 <form action="{{url('task')}}" method="POST">
 @csrf
@@ -12,11 +12,26 @@
 
 
 <p>登録されたタスク</p>
+<table>
+
+<thead>
+    <tr>
+      <th>ID</th>
+      <th>内容</th>
+      <th>状態</th>
+      <th></th>
+    </tr>
+    </thead>
+<tbody>
 @foreach($tasks as $task)
 <tr>
-    <th>{{ $task->id }}</th>
+    <td>{{ $task->id }}</td>
     <td>{{ $task->name }}</td>
+    <td>{{ $task->status_label }}</td>
+    <td><button type="submit">削除</button></td>
 </tr>
 @endforeach
+</tbody>
+</table>
 </body>
 </html>
