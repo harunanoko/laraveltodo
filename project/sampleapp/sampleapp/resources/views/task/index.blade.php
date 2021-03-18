@@ -25,10 +25,17 @@
 <tbody>
 @foreach($tasks as $task)
 <tr>
-    <td>{{ $task->id }}</td>
+    <td>{{ $loop->iteration }}</td>
     <td>{{ $task->name }}</td>
     <td>{{ $task->status_label }}</td>
-    <td><button type="submit">削除</button></td>
+    <td><form action="{{ url('task/' . $task->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+
+        <button type="submit">
+            削除
+        </button>
+    </form></td>
 </tr>
 @endforeach
 </tbody>
