@@ -9,18 +9,12 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
-
-        return view('task.index', compact('tasks'));
+       
     }
 
     public function post(Request $request)
     {
-        $task = new Task();
-        $task->name = $request->name;
-        $task->save();
-    
-        return redirect('/task');
+        
     }
 
 }

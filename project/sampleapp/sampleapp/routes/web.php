@@ -19,12 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/task', 'TaskController@index');
-
-Route::post('/task', 'TaskController@post');
-
-Route::delete('/task/{task}', function (Task $task) {
-    $task->delete();
-
-    return redirect('/task');
-});
+Route::resource('/task', 'TodolistsController')->only([
+    'index', 'store', 'destroy'
+]);
