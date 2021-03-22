@@ -86,7 +86,7 @@ class TodolistsController extends Controller
      */
     public function destroy($id)
     {
-        Task::where('id', $id)->delete();
+        Task::find($id)->delete();
 
         return redirect('/task');
     }
