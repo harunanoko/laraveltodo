@@ -20,5 +20,5 @@ Route::get('/', function () {
 });
 
 Route::resource('/task', 'TodolistsController')->only([
-    'index', 'store', 'destroy'
+    'index', 'store', 'destroy', 'update'
 ]);

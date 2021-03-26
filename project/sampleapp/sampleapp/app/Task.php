@@ -11,9 +11,8 @@ class Task extends Model
     ];
 
     const STATUS = [
-        1 => [ 'label' => '作業中' ],
-        2 => [ 'label' => '未着手' ],
-        3 => [ 'label' => '完了' ],
+        0 => [ 'label' => '作業中' ],
+        1 => [ 'label' => '未着手' ],
     ];
 
     public function getStatusLabelAttribute()

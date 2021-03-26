@@ -75,7 +75,11 @@ class TodolistsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = Task::find($id);
+        $task->status = $request->status;
+        $task->save();
+   
+        return redirect('/task');
     }
 
     /**
