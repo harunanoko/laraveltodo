@@ -27,16 +27,16 @@
 <tr>
     <td>{{ $loop->iteration }}</td>
     <td>{{ $task->name }}</td>
-    <form action="{{ url('task/' . $task->id) }}" method="POST"> 
+    <form action="{{ url('/task' , $task->id) }}" method="POST"> 
 　　　　　@method('PUT') 
   　　　　@csrf
-  　　　　@if( $task->status === 0)
+  　　　　@if( $task->status === 1)
     　　　<td>
             <input class="unCompleted" name="task_btn" type="submit" value="作業中">
          </td>
             <input type="hidden" name="status" value="0"> 
          
-         @else( $task->status === 1)
+         @else()
   
          <td>
             <input class="completed" name="task_btn" type="submit" value="完了">
@@ -46,7 +46,7 @@
          @endif
     </form>
     
-    <td><form action="{{ url('task/' . $task->id) }}" method="POST">
+    <td><form action="{{ url('/task' , $task->id) }}" method="POST">
         @csrf
         @method('DELETE')
 
