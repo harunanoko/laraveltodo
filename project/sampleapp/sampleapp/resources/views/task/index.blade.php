@@ -10,6 +10,23 @@
 <input type="submit" value="登録">
 </form>
 
+<form>
+   <div class="form-check">
+      <input name="RadioGroup1" type="radio" onclick="formSwitch()"checked>
+      <label>すべて</label>
+   </div>
+
+   <div class="form-check">
+      <input name="RadioGroup1" type="radio" onclick="formSwitch()">
+      <label>作業中</label>
+   </div>
+
+   <div class="form-check">
+      <input name="RadioGroup1" type="radio" onclick="formSwitch()">
+      <label>完了</label>
+   </div>
+</form>
+
 
 <p>登録されたタスク</p>
 <table>
@@ -24,7 +41,7 @@
     </thead>
 <tbody>
 @foreach($tasks as $task)
-<tr>
+<tr id="tasks">
     <td>{{ $loop->iteration }}</td>
     <td>{{ $task->name }}</td>
     <form action="{{ url('/task' , $task->id) }}" method="POST"> 
@@ -58,5 +75,7 @@
 @endforeach
 </tbody>
 </table>
+
+<script src="{{ asset('js/click.js') }}"></script>
 </body>
 </html>
